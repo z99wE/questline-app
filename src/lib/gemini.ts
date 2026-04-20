@@ -3,16 +3,13 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const apiKey = process.env.GOOGLE_AI_API_KEY || "";
 const genAI = new GoogleGenerativeAI(apiKey);
 
-export const model = genAI.getGenerativeModel(
-  { 
-    model: "gemini-1.5-flash", 
-    generationConfig: {
-      maxOutputTokens: 500,
-      temperature: 0.7,
-    },
+export const model = genAI.getGenerativeModel({ 
+  model: "gemini-1.5-pro", 
+  generationConfig: {
+    maxOutputTokens: 500,
+    temperature: 0.7,
   },
-  { apiVersion: 'v1' }
-);
+});
 
 export const ORACLE_SYSTEM_PROMPT = `
 You are "The Oracle," an 8-bit AI assistant for QuestLine logistics.
