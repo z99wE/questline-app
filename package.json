@@ -7,9 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "deploy": "gcloud run deploy questline-app --source . --region asia-south1 --allow-unauthenticated"
   },
   "dependencies": {
+    "@google-cloud/vertexai": "^1.12.0",
     "@google/generative-ai": "^0.24.1",
     "@googlemaps/js-api-loader": "^2.0.2",
     "clsx": "^2.1.1",

@@ -1,83 +1,57 @@
-# 🛡️ QuestLine
+# QuestLine: Tactical Logistics Hub
 
-**Logistics & Crowd Management | Gamified Experience**
-
-QuestLine is a high-performance logistics app built for event crowd management. It features a unique "Google Stitch" inspired layout combined with a classic 8-bit retro aesthetic.
-
-## 📋 Hackathon Requirements Check
-- **Vertical**: Logistics & Crowd Management
-- **Repository Size**: ~128 KB (Well under 1.0 MB limit)
-- **Image Policy**: 0 Images. Pure CSS & SVGs only.
-- **Integration**: Google Maps API & Google Gemini API.
-
-## 🧠 Approach & Logic
-My approach for QuestLine centers on **"Game-ified Information Density."** Traditional logistics dashboards are often cluttered and uninspiring. By applying an 8-bit aesthetic (inspired by Google's Stitch and classic RPGs), I transform logistical data points into "Quests" and "Intel."
-
-- **Logic**: The app uses a server-side API route to communicate with **Gemini 1.5 Flash**, injecting a specific "Oracle" system prompt that treats the real world as a game map. 
-- **XP Engine**: I implemented a real-time XP accumulation system that rewards users for "completing missions" (logical transit steps). Data is persisted locally to simulate a player's character progression.
-
-## ⚙️ How it Works
-1. **The Hero Dashboard**: A grid-based layout that manages state for the user's level (LVL) and experience (XP).
-2. **The Oracle (AI)**: Users send messages to the Oracle. The AI analyzes the user's context (simulated location and transit status) and returns tactical, roleplay-style advice to guide them through the crowd.
-3. **Quest Map**: Integrated via **Google Maps JS API**, it uses a custom grayscale filter to match the 8-bit theme while retaining full map functionality. We use **Advanced markers** to highlight specific hubs.
-4. **CSS-Only Assets**: Every visual—from the progress bars to the pixel-art borders—is generated via CSS `box-shadow` and `border-image` logic to minimize repository size.
-
-## 🧐 Assumptions Made
-- **Connectivity**: Assumes the user is connected to the internet to access Google Cloud services (Maps and Gemini).
-- **Location**: Assumes NYC as the default logistical hub for the demonstration.
-- **Persistence**: User progress is assumed to be local to the browser instance (LocalStorage).
-
-## 🕹️ Key Features
-- **Hero Dashboard**: Real-time quest map and modular logistics intel.
-- **The Oracle**: AI-powered logistical advice (Gemini integration).
-- **XP System**: Earn levels by navigating transit hubs efficiently.
-- **Accessibility**: Screen-reader optimized landmarks and `aria-live` regions for status updates.
-
-## 📦 Getting Started
-
-### 1. Requirements
-- Node.js 20+
-- Google Maps API Key
-- Google AI (Gemini) API Key
-
-### 2. Installation
-```bash
-npm install
-```
-
-### 3. Environment Setup
-Create a `.env.local` file:
-```env
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_maps_key
-GOOGLE_AI_API_KEY=your_gemini_key
-```
-
-### 4. Development
-```bash
-npm run dev
-```
-
-## ☁️ Deployment (Google Cloud Run - UNIVERSAL FIX)
-
-The app now uses a **Runtime Configuration** model. This is 100% reliable as it avoids build-time sync issues. Use this command to deploy:
-
-```bash
-gcloud run deploy questline-app \
-  --source . \
-  --region asia-south1 \
-  --set-env-vars="GOOGLE_AI_API_KEY=AIzaSyBxNHIfbscn7vpWjog4DUlvIZN3qjtuHL4,NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=AIzaSyARNn5yiYCJI8qWkeBZT6Pc5vVZZdZhJPQ" \
-  --allow-unauthenticated
-```
-
-> [!TIP]
-> If Google Maps shows "For development purposes only", ensure **Billing** is enabled for your project in the Google Cloud Console.
-
-## 🛠️ Tech Stack
-- **Framework**: Next.js 15 (App Router)
-- **Styling**: Tailwind CSS + Pure CSS 8-bit Borders
-- **Animation**: Framer Motion
-- **AI**: Google Generative AI (Gemini Flash)
-- **Maps**: Google Maps JavaScript API
+**QuestLine** is a dynamic mission-control application designed for high-stakes urban logistics and transit management. Built for the Google Antigravity Challenge, it leverages the **Google Maps API** to create a live, interactive tactical environment where "Commanders" secure hubs to optimize transit flow.
 
 ---
-*Developed with ❤️ for the future of logistics.*
+
+## 🛰️ Project Overview
+QuestLine transforms mundane transit data into an interactive mission-ready dashboard. By integrating live map intelligence with a retro-heroic aesthetic, it provides Commanders with real-time field reports and Hub status assessments.
+
+### 🎯 Key Vertical: Tactical Logistics
+- **Persona**: Transit Overwatch / Crowd Commander.
+- **Logic**: Dynamic Hub Securing. Commanders click map hubs to "secure" them, earning XP and stabilizing sectors.
+
+---
+
+## 🛠️ Approach & Logic
+QuestLine focuses on **Practical Usability** and **Zero-Latency Intelligence**.
+
+### 1. The Interactive Tactical Map
+- Uses **Google Maps Advanced Marker API** for high-performance interactive hubs.
+- Implements custom **Circle** overlays to visualize "Congestion Blooms" and mission zones.
+- Provides a direct link between physical location data and regional XP rewards.
+
+### 2. Tactical Terminal (Intel Engine)
+- A robust, event-driven logging system that translates Map interactions into tactical briefs.
+- Mocked intelligence scripts provide realistic feedback (e.g., "Hub Alpha Secured: Flow Stabilized") without the instability of external AI dependencies.
+
+### 3. Commander Progression
+- Persistent state management using **LocalStorage** to track Levels and XP.
+- A heroic feedback loop that encourages active exploration and hub management.
+
+---
+
+## 🚀 How it Works
+1. **Interactive Scans**: Explore the sector via the Quest Map. Blue, Red, and Yellow markers represent Port Echo, HUB Bravo, and HUB Alpha respectively.
+2. **Secure Hubs**: Click on any Advanced Hub marker to "Secure" it.
+3. **Intel Feedback**: Watch the **Tactical Terminal** for real-time mission logs and status updates from the sector.
+4. **Level Up**: Amass XP to reach higher Command levels and stabilize New York District 1.
+
+---
+
+## 📐 Assumptions & Design
+- **Local Intelligence**: Based on user feedback, the "Oracle" intelligence was shifted from a flaky AI backend to a stable, localized rule-based engine to ensure 100% mission uptime during evaluation.
+- **Performance**: The application is optimized to be lightweight (< 1MB) for high-speed deployment and evaluation.
+
+---
+
+## 🛠️ Tech Stack
+- **Framework**: Next.js (App Router)
+- **Maps**: Google Maps JS SDK (Loader)
+- **Styling**: Tailwind CSS + Custom 8-bit CSS Framework
+- **Animation**: Framer Motion
+- **Icons**: Lucide React
+
+---
+
+*&copy; 2026 QuestLine Tactical | For Antigravity Challenge Review*
